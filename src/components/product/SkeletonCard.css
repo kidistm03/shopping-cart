@@ -1,0 +1,31 @@
+.skeleton-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.skeleton-image {
+  height: 220px;
+  background-color: #ddd;
+  margin-bottom: 15px;
+}
+
+.skeleton-title {
+  height: 20px;
+  width: 80%;
+  background-color: #ddd;
+  margin-bottom: 15px;
+}
+
+.skeleton-price {
+  height: 20px;
+  width: 40%;
+  background-color: #ddd;
+  margin-bottom: 15px;
+}
+
+.skeleton-button {
+  height: 40px;
+  width: 100%;
+  background-color: #ddd;
+}
