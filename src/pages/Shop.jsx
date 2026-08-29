@@ -1,5 +1,7 @@
 import useProducts from "../hooks/useProducts";
 import ProductGrid from "../components/product/ProductGrid";
+import SkeletonCard from "../components/product/SkeletonCard";
+import "../components/product/ProductGrid.css";
 
 function Shop() {
   const {
@@ -13,7 +15,13 @@ function Shop() {
     return (
       <div>
         <h1>Shop</h1>
-        <p>Loading products...</p>
+
+        <div className="product-grid">
+          <SkeletonCard />
+          <SkeletonCard />
+          <SkeletonCard />
+          <SkeletonCard />
+        </div>
       </div>
     );
   }
@@ -22,6 +30,7 @@ function Shop() {
     return (
       <div>
         <h1>Shop</h1>
+
         <p>{error}</p>
 
         <button onClick={retry}>
