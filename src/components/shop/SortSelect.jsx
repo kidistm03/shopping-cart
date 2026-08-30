@@ -1,18 +1,14 @@
 import "../../styles/SortSelect.css";
-function SortSelect({ sort, onSort }) {
-  return (
-    <div className="sort-box">
-      <label htmlFor="sort">
-        Sort by:
-      </label>
 
+function SortSelect({ sort, setSort }) {
+  return (
+    <div className="sort-select">
       <select
-        id="sort"
         value={sort}
-        onChange={(event) => onSort(event.target.value)}
+        onChange={(event) => setSort(event.target.value)}
       >
         <option value="default">
-          Default
+          Sort By
         </option>
 
         <option value="price-low">
@@ -24,11 +20,7 @@ function SortSelect({ sort, onSort }) {
         </option>
 
         <option value="name">
-          Name: A-Z
-        </option>
-
-        <option value="rating">
-          Rating
+          Name: A to Z
         </option>
       </select>
     </div>

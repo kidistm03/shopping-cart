@@ -1,12 +1,13 @@
 import "../../styles/SearchBar.css";
-function SearchBar({ search, onSearch }) {
+
+function SearchBar({ search, setSearch }) {
   return (
-    <div className="search-box">
+    <div className="search-bar">
       <input
         type="text"
         placeholder="Search products..."
         value={search}
-        onChange={(event) => onSearch(event.target.value)}
+        onChange={(event) => setSearch(event.target.value)}
       />
     </div>
   );

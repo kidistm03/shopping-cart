@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import "../styles/Shop.css";
 import useProducts from "../hooks/useProducts";
 import useCategories from "../hooks/useCategories";
