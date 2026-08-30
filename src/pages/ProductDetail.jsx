@@ -1,11 +1,15 @@
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+
 import useCart from "../hooks/useCart";
+
 import "../styles/ProductDetail.css";
 
 function ProductDetail() {
   const { id } = useParams();
+
   const { dispatch } = useCart();
+
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -37,71 +41,70 @@ function ProductDetail() {
     fetchProduct();
   }, [id]);
 
+  function handleAddToCart() {
+    dispatch({
+      type: "ADD_TO_CART",
+      payload: product
+    });
+  }
+
   if (loading) {
-    return <h1>Loading product...</h1>;
+    return (
+      <main className="product-detail">
+        <p>Loading product...</p>
+      </main>
+    );
   }
 
   if (error) {
     return (
-      <div>
-        <h1>Error</h1>
+      <main className="product-detail">
+        <h2>Something went wrong</h2>
         <p>{error}</p>
-
-        <Link to="/shop">
-          Back to Shop
-        </Link>
-      </div>
+      </main>
     );
   }
-  function handleAddToCart() {
-    dispatch({
-      type: "ADD_ITEM",
-      payload: {
-        ...product,
-        quantity: 1
-      }
-    });
+
+  if (!product) {
+    return null;
   }
 
   return (
-    <div className="product-detail">
-      <div>
+    <main className="product-detail">
+      <div className="product-detail-image">
         <img
           src={product.image}
           alt={product.title}
-          className="product-detail-image"
         />
       </div>
 
       <div className="product-detail-info">
+        <p className="product-category">
+          {product.category}
+        </p>
+
         <h1>{product.title}</h1>
 
-        <p className="product-detail-description">
-          {product.description}
-        </p>
-
-        <p className="product-detail-category">
-          Category: {product.category}
-        </p>
-
-        <p className="product-detail-price">
+        <p className="product-price">
           ${product.price}
         </p>
 
-        <p>
-          {product.rating.rate}
+        <p className="product-description">
+          {product.description}
         </p>
+
+        <p className="product-rating">
+          ⭐ {product.rating.rate} ({product.rating.count} reviews)
+        </p>
+
         <button
-          className="add-cart-button"
+          type="button"
           onClick={handleAddToCart}
         >
           Add to Cart
         </button>
-        <Link to="/shop" className="back-button">
-          Back to Shop
-        </Link>
       </div>
-    </div>
+    </main>
   );
 }
 

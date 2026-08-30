@@ -1,13 +1,12 @@
 import { useMemo, useState } from "react";
-import "../styles/Shop.css";
+
 import useProducts from "../hooks/useProducts";
-import useCategories from "../hooks/useCategories";
 
 import ProductGrid from "../components/product/ProductGrid";
 import SkeletonCard from "../components/product/SkeletonCard";
 
-import CategoryFilter from "../components/shop/CategoryFilter";
 import SearchBar from "../components/shop/SearchBar";
+import CategoryFilter from "../components/shop/CategoryFilter";
 import SortSelect from "../components/shop/SortSelect";
 
 function Shop() {
