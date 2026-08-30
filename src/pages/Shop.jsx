@@ -1,15 +1,25 @@
+import { useState } from "react";
+
 import useProducts from "../hooks/useProducts";
+import useCategories from "../hooks/useCategories";
+
 import ProductGrid from "../components/product/ProductGrid";
 import SkeletonCard from "../components/product/SkeletonCard";
-import "../components/product/ProductGrid.css";
+import CategoryFilter from "../components/shop/CategoryFilter";
 
 function Shop() {
+  const [selectedCategory, setSelectedCategory] = useState("all");
+
   const {
     products,
     loading,
     error,
     retry
-  } = useProducts();
+  } = useProducts(selectedCategory);
+
+  const {
+    categories
+  } = useCategories();
 
   if (loading) {
     return (
@@ -43,6 +53,12 @@ function Shop() {
   return (
     <div>
       <h1>Shop</h1>
+
+      <CategoryFilter
+        categories={categories}
+        selectedCategory={selectedCategory}
+        onCategoryChange={setSelectedCategory}
+      />
 
       <ProductGrid products={products} />
     </div>
