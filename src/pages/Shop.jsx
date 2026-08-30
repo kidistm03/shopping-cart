@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import "../styles/Shop.css";
 import useProducts from "../hooks/useProducts";
 import useCategories from "../hooks/useCategories";
 
@@ -11,100 +11,93 @@ import SearchBar from "../components/shop/SearchBar";
 import SortSelect from "../components/shop/SortSelect";
 
 function Shop() {
-  const [selectedCategory, setSelectedCategory] = useState("all");
-  const [search, setSearch] = useState("");
-  const [sort, setSort] = useState("default");
-
   const {
     products,
     loading,
-    error,
-    retry
-  } = useProducts(
-    "https://fakestoreapi.com/products"
-  );
+    error
+  } = useProducts("https://fakestoreapi.com/products");
 
-  const {
-    categories
-  } = useCategories();
+  const [search, setSearch] = useState("");
+  const [category, setCategory] = useState("all");
+  const [sort, setSort] = useState("default");
 
-  const filteredProducts = products.filter((product) =>
-    product.title.toLowerCase().includes(search.toLowerCase())
-  );
+  const filteredProducts = useMemo(() => {
+    let result = [...products];
 
-  const sortedProducts = [...filteredProducts];
+    // Search
+    if (search.trim() !== "") {
+      result = result.filter((product) =>
+        product.title
+          .toLowerCase()
+          .includes(search.toLowerCase())
+      );
+    }
 
-  if (sort === "price-low") {
-    sortedProducts.sort((a, b) => a.price - b.price);
-  }
+    // Category
+    if (category !== "all") {
+      result = result.filter(
+        (product) => product.category === category
+      );
+    }
 
-  if (sort === "price-high") {
-    sortedProducts.sort((a, b) => b.price - a.price);
-  }
+    // Sort
+    if (sort === "price-low") {
+      result.sort((a, b) => a.price - b.price);
+    }
 
-  if (sort === "name") {
-    sortedProducts.sort((a, b) =>
-      a.title.localeCompare(b.title)
-    );
-  }
+    if (sort === "price-high") {
+      result.sort((a, b) => b.price - a.price);
+    }
 
-  if (sort === "rating") {
-    sortedProducts.sort(
-      (a, b) => b.rating.rate - a.rating.rate
-    );
-  }
+    if (sort === "name") {
+      result.sort((a, b) =>
+        a.title.localeCompare(b.title)
+      );
+    }
 
-  if (loading) {
-    return (
-      <div>
-        <h1>Shop</h1>
-
-        <div className="product-grid">
-          <SkeletonCard />
-          <SkeletonCard />
-          <SkeletonCard />
-          <SkeletonCard />
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div>
-        <h1>Shop</h1>
-
-        <p>{error}</p>
-
-        <button onClick={retry}>
-          Try Again
-        </button>
-      </div>
-    );
-  }
+    return result;
+  }, [products, search, category, sort]);
 
   return (
-    <div>
+    <main className="shop-page">
       <h1>Shop</h1>
 
-      <SearchBar
-        search={search}
-        onSearch={setSearch}
-      />
+      <div className="shop-controls">
+        <SearchBar
+          search={search}
+          setSearch={setSearch}
+        />
 
-      <CategoryFilter
-        categories={categories}
-        selectedCategory={selectedCategory}
-        onCategoryChange={setSelectedCategory}
-      />
+        <CategoryFilter
+          category={category}
+          setCategory={setCategory}
+        />
 
-      <SortSelect
-        sort={sort}
-        onSort={setSort}
-      />
+        <SortSelect
+          sort={sort}
+          setSort={setSort}
+        />
+      </div>
 
-      <ProductGrid products={sortedProducts} />
-    </div>
+      {loading && (
+        <div className="product-grid">
+          {Array.from({ length: 8 }).map((_, index) => (
+            <SkeletonCard key={index} />
+          ))}
+        </div>
+      )}
+
+      {error && (
+        <div className="error-message">
+          <h2>Something went wrong</h2>
+          <p>{error}</p>
+        </div>
+      )}
+
+      {!loading && !error && (
+        <ProductGrid products={filteredProducts} />
+      )}
+    </main>
   );
 }
 
