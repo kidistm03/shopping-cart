@@ -20,7 +20,9 @@ function Shop() {
     loading,
     error,
     retry
-  } = useProducts(selectedCategory);
+  } = useProducts(
+    "https://fakestoreapi.com/products"
+  );
 
   const {
     categories

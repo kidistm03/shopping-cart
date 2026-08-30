@@ -1,10 +1,30 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useEffect, useReducer } from "react";
 import cartReducer from "./cartReducer";
 
-const CartContext = createContext();
+export const CartContext = createContext();
 
-function CartProvider({ children }) {
-  const [cart, dispatch] = useReducer(cartReducer, []);
+export function CartProvider({ children }) {
+  const [cart, dispatch] = useReducer(
+    cartReducer,
+    [],
+    () => {
+      const savedCart = localStorage.getItem("cart");
+
+      try {
+        if (savedCart) {
+          return JSON.parse(savedCart);
+        }
+      } catch (error) {
+        console.log("Could not load cart", error);
+      }
+
+      return [];
+    }
+  );
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
 
   return (
     <CartContext.Provider value={{ cart, dispatch }}>
@@ -12,5 +32,3 @@ function CartProvider({ children }) {
     </CartContext.Provider>
   );
 }
-
-export { CartProvider, CartContext };
