@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function useProducts() {
+function useProducts(category = "all") {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -10,7 +10,13 @@ function useProducts() {
       setLoading(true);
       setError("");
 
-      const response = await fetch("https://fakestoreapi.com/products");
+      let url = "https://fakestoreapi.com/products";
+
+      if (category !== "all") {
+        url = `https://fakestoreapi.com/products/category/${category}`;
+      }
+
+      const response = await fetch(url);
 
       if (!response.ok) {
         throw new Error("Failed to fetch products");
@@ -28,7 +34,7 @@ function useProducts() {
 
   useEffect(() => {
     fetchProducts();
-  }, []);
+  }, [category]);
 
   return {
     products,
