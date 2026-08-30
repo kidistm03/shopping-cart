@@ -1,5 +1,4 @@
-import "./SortSelect.css";
-
+import "../../styles/SortSelect.css";
 function SortSelect({ sort, onSort }) {
   return (
     <div className="sort-box">

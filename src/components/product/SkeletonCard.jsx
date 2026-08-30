@@ -1,4 +1,4 @@
-import "./SkeletonCard.css";
+import "../../styles/SkeletonCard.css";
 
 function SkeletonCard() {
   return (

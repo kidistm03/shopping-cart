@@ -1,5 +1,4 @@
-import "./CategoryFilter.css";
-
+import "../../styles/CategoryFilter.css";
 function CategoryFilter({
   categories,
   selectedCategory,

@@ -1,5 +1,4 @@
-import "./SearchBar.css";
-
+import "../../styles/SearchBar.css";
 function SearchBar({ search, onSearch }) {
   return (
     <div className="search-box">
