@@ -1,0 +1,12 @@
+.sort-box {
+  margin: 20px 50px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sort-box select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
