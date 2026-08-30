@@ -1,31 +1,37 @@
 .skeleton-card {
   background-color: white;
-  border-radius: 10px;
   padding: 20px;
+  border-radius: 10px;
+  width: 100%;
 }
 
 .skeleton-image {
-  height: 220px;
-  background-color: #ddd;
+  width: 100%;
+  height: 200px;
+  background-color: #e5e5e5;
+  border-radius: 8px;
   margin-bottom: 15px;
 }
 
 .skeleton-title {
-  height: 20px;
   width: 80%;
-  background-color: #ddd;
-  margin-bottom: 15px;
+  height: 20px;
+  background-color: #e5e5e5;
+  border-radius: 5px;
+  margin-bottom: 12px;
 }
 
 .skeleton-price {
-  height: 20px;
   width: 40%;
-  background-color: #ddd;
+  height: 18px;
+  background-color: #e5e5e5;
+  border-radius: 5px;
   margin-bottom: 15px;
 }
 
 .skeleton-button {
-  height: 40px;
   width: 100%;
-  background-color: #ddd;
+  height: 40px;
+  background-color: #e5e5e5;
+  border-radius: 5px;
 }
