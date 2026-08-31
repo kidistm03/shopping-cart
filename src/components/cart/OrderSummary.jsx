@@ -1,13 +1,24 @@
+import { useState } from "react";
 import useCart from "../../hooks/useCart";
+
+import CheckoutForm from "./CheckoutForm";
 
 import "../../styles/OrderSummary.css";
 
 function OrderSummary() {
   const { cart } = useCart();
 
+  const [showCheckout, setShowCheckout] = useState(false);
+
   const subtotal = cart.reduce(
     (total, item) =>
       total + item.price * item.quantity,
+    0
+  );
+
+  const itemCount = cart.reduce(
+    (total, item) =>
+      total + item.quantity,
     0
   );
 
@@ -17,13 +28,7 @@ function OrderSummary() {
 
       <div className="summary-row">
         <span>Items</span>
-        <span>
-          {cart.reduce(
-            (total, item) =>
-              total + item.quantity,
-            0
-          )}
-        </span>
+        <span>{itemCount}</span>
       </div>
 
       <div className="summary-row">
@@ -36,9 +41,18 @@ function OrderSummary() {
         <span>${subtotal.toFixed(2)}</span>
       </div>
 
-      <button type="button">
-        Checkout
-      </button>
+      {!showCheckout && (
+        <button
+          type="button"
+          onClick={() => setShowCheckout(true)}
+        >
+          Checkout
+        </button>
+      )}
+
+      {showCheckout && (
+        <CheckoutForm total={subtotal} />
+      )}
     </aside>
   );
 }
