@@ -7,7 +7,7 @@
 
   width: 100%;
 
-  height: 70px;
+  height: 68px;
 
   display: flex;
 
@@ -19,25 +19,31 @@
 
   background: rgba(255, 255, 255, 0.96);
 
-  border-bottom: 1px solid #e7e5df;
+  border-bottom: 1px solid #ebe9ef;
 
-  backdrop-filter: blur(12px);
+  box-shadow:
+    0 2px 12px rgba(30, 20, 50, 0.04);
 
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(14px);
 }
-
-.navbar a {
-  text-decoration: none;
-}
-
 .navbar-logo {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  color: #171725;
+
   font-size: 21px;
 
-  font-weight: 750;
+  font-weight: 800;
 
   letter-spacing: -0.5px;
+}
 
-  color: #181818;
+.navbar-logo span {
+  color: #6c3ce9;
 }
 
 .nav-links {
@@ -45,31 +51,27 @@
 
   align-items: center;
 
-  gap: 8px;
+  gap: 6px;
 }
 
 .nav-links a {
-  position: relative;
-
   padding: 9px 13px;
 
-  border-radius: 8px;
+  border-radius: 7px;
 
-  color: #555;
+  color: #555561;
 
   font-size: 14px;
 
   font-weight: 600;
 
-  transition:
-    color 0.2s ease,
-    background 0.2s ease;
+  transition: 0.2s ease;
 }
 
 .nav-links a:hover {
-  color: #181818;
+  background: #f3effd;
 
-  background: #f3f2ef;
+  color: #6c3ce9;
 }
 
 .cart-link {
@@ -81,13 +83,13 @@
 }
 
 .cart-badge {
-  min-width: 21px;
+  min-width: 20px;
 
-  height: 21px;
+  height: 20px;
 
-  padding: 0 6px;
+  padding: 0 5px;
 
-  display: inline-flex;
+  display: flex;
 
   align-items: center;
 
@@ -95,17 +97,16 @@
 
   border-radius: 50%;
 
-  background: #1c1c1c;
+  background: #6c3ce9;
 
-  color: #ffffff;
+  color: white;
 
   font-size: 11px;
 
   font-weight: 700;
 }
 
-
-@media (max-width: 600px) {
+@media (max-width: 700px) {
   .navbar {
     height: 62px;
 
@@ -117,12 +118,12 @@
   }
 
   .nav-links {
-    gap: 2px;
+    gap: 1px;
   }
 
   .nav-links a {
-    padding: 8px 9px;
+    padding: 8px;
 
-    font-size: 13px;
+    font-size: 12px;
   }
 }
