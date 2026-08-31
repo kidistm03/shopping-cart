@@ -1,6 +1,3 @@
-/* =========================
-   PRODUCT GRID
-========================= */
 
 .product-grid {
   display: grid;
@@ -12,10 +9,6 @@
   align-items: stretch;
 }
 
-
-/* =========================
-   PRODUCT CARD
-========================= */
 
 .product-card {
   width: 100%;
@@ -44,11 +37,6 @@
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.09);
 }
 
-
-/* =========================
-   IMAGE AREA
-========================= */
-
 .product-image {
   width: 100%;
   height: 220px;
@@ -75,11 +63,6 @@
   display: block;
 }
 
-
-/* =========================
-   PRODUCT INFORMATION
-========================= */
-
 .product-info {
   flex: 1;
 
@@ -89,11 +72,6 @@
 
   padding: 18px;
 }
-
-
-/* =========================
-   CATEGORY
-========================= */
 
 .product-category {
   height: 18px;
@@ -120,10 +98,6 @@
 }
 
 
-/* =========================
-   PRODUCT NAME
-========================= */
-
 .product-info h3 {
   height: 48px;
 
@@ -149,10 +123,6 @@
 }
 
 
-/* =========================
-   PRICE
-========================= */
-
 .product-price {
   height: 25px;
 
@@ -170,10 +140,6 @@
 }
 
 
-/* =========================
-   BUTTON AREA
-========================= */
-
 .product-buttons {
   width: 100%;
 
@@ -184,10 +150,6 @@
   margin-top: auto;
 }
 
-
-/* =========================
-   BOTH BUTTONS
-========================= */
 
 .view-button,
 .add-button {
@@ -216,11 +178,6 @@
   box-sizing: border-box;
 }
 
-
-/* =========================
-   VIEW BUTTON
-========================= */
-
 .view-button {
   border: 1px solid #dcdcdc;
 
@@ -237,11 +194,6 @@
 
   background-color: #faf9fd;
 }
-
-
-/* =========================
-   ADD TO CART BUTTON
-========================= */
 
 .add-button {
   border: 1px solid #6c3ce9;
