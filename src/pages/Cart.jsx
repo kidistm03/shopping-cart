@@ -9,7 +9,7 @@ import "../styles/Cart.css";
 function Cart() {
   const { cart, dispatch } = useCart();
 
-  function clearCart() {
+  function handleClearCart() {
     const confirmed = window.confirm(
       "Are you sure you want to clear your cart?"
     );
@@ -26,13 +26,14 @@ function Cart() {
   }
 
   return (
-    <div className="cart-page">
+    <main className="cart-page">
       <div className="cart-header">
-        <h1>Shopping Cart</h1>
+        <h1>Your Cart</h1>
 
         <button
+          type="button"
+          onClick={handleClearCart}
           className="clear-cart-button"
-          onClick={clearCart}
         >
           Clear Cart
         </button>
@@ -48,9 +49,9 @@ function Cart() {
           ))}
         </div>
 
-        <OrderSummary cart={cart} />
+        <OrderSummary />
       </div>
-    </div>
+    </main>
   );
 }
 

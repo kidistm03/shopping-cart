@@ -1,4 +1,5 @@
 import useCart from "../../hooks/useCart";
+
 import "../../styles/CartItem.css";
 
 function CartItem({ item }) {
@@ -6,39 +7,30 @@ function CartItem({ item }) {
 
   function increaseQuantity() {
     dispatch({
-      type: "UPDATE_QUANTITY",
-      payload: {
-        id: item.id,
-        quantity: item.quantity + 1
-      }
+      type: "INCREASE_QUANTITY",
+      payload: item.id
     });
   }
 
   function decreaseQuantity() {
-    if (item.quantity > 1) {
-      dispatch({
-        type: "UPDATE_QUANTITY",
-        payload: {
-          id: item.id,
-          quantity: item.quantity - 1
-        }
-      });
-    }
+    dispatch({
+      type: "DECREASE_QUANTITY",
+      payload: item.id
+    });
   }
 
   function removeItem() {
     dispatch({
-      type: "REMOVE_ITEM",
+      type: "REMOVE_FROM_CART",
       payload: item.id
     });
   }
 
   return (
-    <div className="cart-item">
+    <article className="cart-item">
       <img
         src={item.image}
         alt={item.title}
-        className="cart-item-image"
       />
 
       <div className="cart-item-info">
@@ -47,25 +39,33 @@ function CartItem({ item }) {
         <p>${item.price}</p>
 
         <div className="quantity-controls">
-          <button onClick={decreaseQuantity}>
+          <button
+            type="button"
+            onClick={decreaseQuantity}
+            disabled={item.quantity === 1}
+          >
             −
           </button>
 
           <span>{item.quantity}</span>
 
-          <button onClick={increaseQuantity}>
+          <button
+            type="button"
+            onClick={increaseQuantity}
+          >
             +
           </button>
         </div>
 
         <button
-          className="remove-button"
+          type="button"
           onClick={removeItem}
+          className="remove-button"
         >
           Remove
         </button>
       </div>
-    </div>
+    </article>
   );
 }
 
