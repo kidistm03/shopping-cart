@@ -1,16 +1,38 @@
-# React + Vite
+# Shopping Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+React shopping website where users can browse products, search and filter products, view product details, add products to a cart, change quantities, remove products, and complete checkout.
 
-Currently, two official plugins are available:
+The project uses React components, React Router, Context API, custom hooks, and the Fake Store API.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- View products from an API
+- Search for products
+- Filter products by category
+- View product details
+- Add products to cart
+- Increase product quantity
+- Decrease product quantity
+- Remove products from cart
+- View cart total
+- Checkout
+- Payment success message
+- Responsive design
+- Sticky navigation bar
+- Reusable React components
 
-## Expanding the Oxlint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Technologies Used
+
+- React
+- JavaScript
+- CSS
+- React Router
+- Context API
+- Custom Hooks
+- Fake Store API
+- Vite
+
