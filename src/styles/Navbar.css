@@ -17,7 +17,7 @@
 
   padding: 0 32px;
 
-  background: rgba(255, 255, 255, 0.96);
+  background: rgba(8, 0, 0, 0.96);
 
   border-bottom: 1px solid #ebe9ef;
 
@@ -26,18 +26,19 @@
 
   backdrop-filter: blur(14px);
 }
+.logo{
+  color:white;
+}
+
 .navbar-logo {
   display: flex;
-
   align-items: center;
-
   gap: 8px;
-
-  color: #171725;
+  color: white;
 
   font-size: 21px;
 
-  font-weight: 800;
+  font-weight: 1000;
 
   letter-spacing: -0.5px;
 }
@@ -59,7 +60,7 @@
 
   border-radius: 7px;
 
-  color: #555561;
+  color: white;
 
   font-size: 14px;
 
