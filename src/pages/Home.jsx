@@ -10,9 +10,6 @@ function Home() {
 
         <div className="hero-content">
 
-          <span className="hero-label">
-            NEW COLLECTION
-          </span>
 
           <h1>
             Discover The Latest
@@ -46,26 +43,12 @@ function Home() {
 
         </div>
 
-
-        <div className="hero-decoration">
-
-          <div className="hero-circle"></div>
-
-          <div className="shopping-bag">
-            🛍️
-          </div>
-
-        </div>
-
       </section>
 
 
       <section className="features">
 
         <div className="feature">
-          <div className="feature-icon">
-            🚚
-          </div>
 
           <div>
             <h3>Fast Delivery</h3>
@@ -78,10 +61,6 @@ function Home() {
 
 
         <div className="feature">
-          <div className="feature-icon">
-            🔒
-          </div>
-
           <div>
             <h3>Secure Payment</h3>
 
@@ -91,27 +70,7 @@ function Home() {
           </div>
         </div>
 
-
         <div className="feature">
-          <div className="feature-icon">
-            ↩️
-          </div>
-
-          <div>
-            <h3>Easy Returns</h3>
-
-            <p>
-              Simple return process
-            </p>
-          </div>
-        </div>
-
-
-        <div className="feature">
-          <div className="feature-icon">
-            💬
-          </div>
-
           <div>
             <h3>Customer Support</h3>
 
@@ -128,16 +87,11 @@ function Home() {
         <div className="section-heading">
 
           <div>
-            <span>SHOP BY CATEGORY</span>
 
             <h2>
               Find What You Need
             </h2>
           </div>
-
-          <Link to="/shop">
-            View All →
-          </Link>
 
         </div>
 
@@ -210,32 +164,6 @@ function Home() {
         </div>
 
       </section>
-
-      <section className="home-cta">
-
-        <div>
-          <span>
-            READY TO SHOP?
-          </span>
-
-          <h2>
-            Your next favorite
-            <br />
-            product is waiting.
-          </h2>
-
-          <p>
-            Explore our collection and find
-            something you'll love.
-          </p>
-        </div>
-
-        <Link to="/shop">
-          Start Shopping →
-        </Link>
-
-      </section>
-
     </main>
   );
 }
