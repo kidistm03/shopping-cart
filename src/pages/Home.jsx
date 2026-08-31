@@ -144,7 +144,7 @@ function Home() {
             to="/shop"
             className="category-card category-pink"
           >
-            
+            <br></br><br></br>
 
             <h3>Shoes</h3>
 
