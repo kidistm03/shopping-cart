@@ -190,17 +190,6 @@
   background-color: #f1ebff;
 }
 
-.category-icon {
-  width: 45px;
-  height: 45px;
-  margin-bottom: 15px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  font-size: 22px;
-  text-align: center;
-  line-height: 45px;
-}
-
 .category-card h3 {
   font-size: 25px;
   color: #222222;

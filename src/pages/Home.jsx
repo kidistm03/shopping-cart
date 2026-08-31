@@ -102,10 +102,8 @@ function Home() {
             to="/shop"
             className="category-card category-purple"
           >
-            <div className="category-icon">
-              👕
-            </div>
 
+            <br></br><br></br>
             <h3>Clothing</h3>
 
             <p>
@@ -118,10 +116,8 @@ function Home() {
             to="/shop"
             className="category-card category-blue"
           >
-            <div className="category-icon">
-              💍
-            </div>
 
+            <br></br><br></br>
             <h3>Jewelry</h3>
 
             <p>
@@ -134,9 +130,7 @@ function Home() {
             to="/shop"
             className="category-card category-orange"
           >
-            <div className="category-icon">
-              🎒
-            </div>
+            <br></br><br></br>
 
             <h3>Accessories</h3>
 
@@ -150,9 +144,7 @@ function Home() {
             to="/shop"
             className="category-card category-pink"
           >
-            <div className="category-icon">
-              👟
-            </div>
+            <br></br><br></br>
 
             <h3>Shoes</h3>
 
