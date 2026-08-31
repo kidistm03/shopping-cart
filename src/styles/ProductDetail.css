@@ -57,13 +57,14 @@
   padding: 12px 25px;
   border: none;
   border-radius: 6px;
-  background-color: #111;
+  background-color: #6c3ce9;
   color: white;
   cursor: pointer;
 }
 
 .product-detail-info button:hover {
   opacity: 0.85;
+  background-color: #5930c8;
 }
 
 @media (max-width: 700px) {

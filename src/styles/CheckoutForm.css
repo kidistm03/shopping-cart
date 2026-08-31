@@ -64,7 +64,7 @@
 
   border-radius: 9px;
 
-  background: #1c1c1c;
+  background: #6c3ce9;
 
   color: #ffffff;
 
@@ -76,7 +76,7 @@
 }
 
 .checkout-form button:hover {
-  background: #333333;
+  background: #5930c8;
 }
 
 .checkout-form button:active {
@@ -99,10 +99,6 @@
   line-height: 1.5;
 }
 
-
-/* =========================
-   SUCCESS
-========================= */
 
 .checkout-success {
   margin-top: 20px;

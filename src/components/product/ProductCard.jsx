@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
-
 import useCart from "../../hooks/useCart";
-
 import "../../styles/ProductCard.css";
 
 function ProductCard({ product }) {
@@ -10,29 +8,27 @@ function ProductCard({ product }) {
   function handleAddToCart() {
     dispatch({
       type: "ADD_TO_CART",
-      payload: product
+      payload: product,
     });
   }
 
   return (
     <article className="product-card">
-      <Link to={`/shop/${product.id}`}>
-        <img
-          src={product.image}
-          alt={product.title}
-        />
+      <div className="product-image">
+        <img src={product.image} alt={product.title} />
+      </div>
 
-        <h2>{product.title}</h2>
-      </Link>
+      <div className="product-info">
+        <Link to={`/shop/${product.id}`}>
+          <h2>{product.title}</h2>
+        </Link>
 
-      <p>${product.price}</p>
+        <p className="product-price">${product.price}</p>
 
-      <button
-        type="button"
-        onClick={handleAddToCart}
-      >
-        Add to Cart
-      </button>
+        <button type="button" onClick={handleAddToCart}>
+          Add to Cart
+        </button>
+      </div>
     </article>
   );
 }
