@@ -14,6 +14,7 @@ function CheckoutForm({ total }) {
   });
 
   const [message, setMessage] = useState("");
+  const [success, setSuccess] = useState(false);
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -28,12 +29,22 @@ function CheckoutForm({ total }) {
     event.preventDefault();
 
     if (
-      !formData.name ||
-      !formData.email ||
-      !formData.phone ||
-      !formData.address
+      !formData.name.trim() ||
+      !formData.email.trim() ||
+      !formData.phone.trim() ||
+      !formData.address.trim()
     ) {
       setMessage("Please fill in all fields.");
+      return;
+    }
+
+    if (!formData.email.includes("@")) {
+      setMessage("Please enter a valid email.");
+      return;
+    }
+
+    if (formData.phone.length < 9) {
+      setMessage("Please enter a valid phone number.");
       return;
     }
 
@@ -41,8 +52,22 @@ function CheckoutForm({ total }) {
       type: "CLEAR_CART"
     });
 
+    setSuccess(true);
+
     setMessage(
-      `Payment successful! Your order total is $${total.toFixed(2)}.`
+      `Payment successful! Your order total was $${total.toFixed(2)}.`
+    );
+  }
+
+  if (success) {
+    return (
+      <div className="checkout-form">
+        <h3>Order Successful 🎉</h3>
+
+        <p className="checkout-message">
+          {message}
+        </p>
+      </div>
     );
   }
 
