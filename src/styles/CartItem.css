@@ -1,83 +1,133 @@
 .cart-item {
   display: flex;
-  gap: 25px;
+
+  gap: 20px;
+
   padding: 20px;
-  background-color: white;
-  border-radius: 10px;
-  margin-bottom: 20px;
+
+  background: #ffffff;
+
+  border: 1px solid #e8e8e3;
+
+  border-radius: 14px;
+
+  transition: box-shadow 0.2s ease;
 }
 
-.cart-item-image {
-  width: 150px;
-  height: 150px;
+.cart-item:hover {
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.cart-item img {
+  width: 120px;
+  height: 120px;
+
+  padding: 12px;
+
   object-fit: contain;
+
+  background: #fafaf8;
+
+  border-radius: 10px;
 }
 
 .cart-item-info {
   flex: 1;
+
+  min-width: 0;
 }
 
 .cart-item-info h2 {
-  margin-top: 0;
+  margin-bottom: 8px;
+
   font-size: 18px;
+
+  line-height: 1.4;
 }
 
 .cart-item-info p {
-  font-size: 18px;
-  font-weight: bold;
+  margin-bottom: 16px;
+
+  font-size: 17px;
+
+  font-weight: 700;
 }
 
 .quantity-controls {
   display: flex;
+
   align-items: center;
-  gap: 15px;
-  margin: 15px 0;
+
+  width: fit-content;
+
+  border: 1px solid #deded9;
+
+  border-radius: 8px;
+
+  overflow: hidden;
 }
 
 .quantity-controls button {
-  width: 35px;
-  height: 35px;
+  width: 38px;
+  height: 36px;
+
   border: none;
-  background-color: #111;
-  color: white;
-  font-size: 20px;
-  cursor: pointer;
-  border-radius: 5px;
+
+  background: #fafaf8;
+
+  font-size: 18px;
+}
+
+.quantity-controls button:hover:not(:disabled) {
+  background: #eeeeea;
+}
+
+.quantity-controls button:disabled {
+  color: #bbb;
+
+  cursor: not-allowed;
 }
 
 .quantity-controls span {
-  font-size: 18px;
-  font-weight: bold;
+  min-width: 40px;
+
+  text-align: center;
+
+  font-weight: 600;
 }
 
 .remove-button {
+  margin-top: 14px;
+
   border: none;
-  background-color: #ddd;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
+
+  background: none;
+
+  color: #a33;
+
+  padding: 0;
+
+  font-size: 13px;
 }
 
 .remove-button:hover {
-  background-color: #bbb;
+  text-decoration: underline;
 }
 
 @media (max-width: 550px) {
   .cart-item {
-    flex-direction: column;
-    align-items: flex-start;
+    padding: 16px;
+
+    gap: 15px;
   }
 
   .cart-item img {
-    width: 120px;
-    height: 120px;
+    width: 90px;
+    height: 90px;
   }
 
-  .cart-item-info {
-    width: 100%;
-  }
-
-  .quantity-controls {
-    margin-top: 10px;
+  .cart-item-info h2 {
+    font-size: 15px;
   }
 }

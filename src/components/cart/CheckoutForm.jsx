@@ -14,6 +14,7 @@ function CheckoutForm({ total }) {
   });
 
   const [message, setMessage] = useState("");
+
   const [success, setSuccess] = useState(false);
 
   function handleChange(event) {
@@ -39,34 +40,57 @@ function CheckoutForm({ total }) {
     }
 
     if (!formData.email.includes("@")) {
-      setMessage("Please enter a valid email.");
+      setMessage("Please enter a valid email address.");
       return;
     }
 
-    if (formData.phone.length < 9) {
+    if (formData.phone.trim().length < 9) {
       setMessage("Please enter a valid phone number.");
       return;
     }
 
-    dispatch({
-      type: "CLEAR_CART"
-    });
+    /*
+      Show success FIRST.
+    */
 
     setSuccess(true);
 
     setMessage(
       `Payment successful! Your order total was $${total.toFixed(2)}.`
     );
+
+    /*
+      Clear the cart after the success
+      message has been displayed.
+    */
+
+    setTimeout(() => {
+      dispatch({
+        type: "CLEAR_CART"
+      });
+    }, 2500);
   }
 
   if (success) {
     return (
-      <div className="checkout-form">
-        <h3>Order Successful 🎉</h3>
+      <div className="checkout-success">
+        <div className="success-icon">
+          ✓
+        </div>
 
-        <p className="checkout-message">
-          {message}
+        <h3>Payment Successful!</h3>
+
+        <p>
+          Thank you for your order, {formData.name}.
         </p>
+
+        <p className="success-total">
+          Total paid: ${total.toFixed(2)}
+        </p>
+
+        <div className="success-note">
+          Your order has been placed successfully.
+        </div>
       </div>
     );
   }
@@ -87,7 +111,7 @@ function CheckoutForm({ total }) {
         <input
           type="email"
           name="email"
-          placeholder="Email"
+          placeholder="Email Address"
           value={formData.email}
           onChange={handleChange}
         />
